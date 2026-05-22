@@ -6,6 +6,7 @@
 <title>STARS ROLEPLAY</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
@@ -20,7 +21,7 @@
 <a onclick="abrirPagina('loja')">Loja</a>
 <a onclick="abrirPagina('regras')">Regras</a>
 <a onclick="abrirPagina('denuncias')">Denúncias</a>
-<a onclick="abrirCarrinho()">Carrinho</a>
+<a onclick="abrirPagina('carrinho')">Carrinho</a>
 </nav>
 
 <button class="account-btn" onclick="abrirLogin()">
@@ -28,6 +29,8 @@ Minha Conta
 </button>
 
 </header>
+
+<!-- HOME -->
 
 <section id="home" class="pagina ativa hero">
 
@@ -59,13 +62,13 @@ Discord
 
 </div>
 
-<img class="characters" src="File/personagens.png">
-
 <p class="bottom-text">
 SIGA NOSSAS REDES SOCIAIS
 </p>
 
 </section>
+
+<!-- LOJA -->
 
 <section id="loja" class="pagina">
 
@@ -73,44 +76,331 @@ SIGA NOSSAS REDES SOCIAIS
 Loja Oficial
 </h1>
 
+<!-- CATEGORIAS -->
+
+<div class="categories">
+
+<button class="category active">
+💎 VIP
+</button>
+
+<button class="category">
+🪪 ID
+</button>
+
+<button class="category">
+🏢 ORGS
+</button>
+
+</div>
+
+<!-- VIPS -->
+
+<h2 class="shop-subtitle">
+💎 VIPS
+</h2>
+
 <div class="grid">
 
 <div class="card">
+
+<div class="vip-title">
+
+<img src="File/vip.png">
+
+<h3>VIP Bronze</h3>
+
+</div>
+
+<strong>R$ 15</strong>
+
+<p>
+Plano básico da STARS.
+</p>
+
+<button onclick="comprar('VIP Bronze')">
+Comprar
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="vip-title">
+
+<img src="File/vip.png">
+
+<h3>VIP Prata</h3>
+
+</div>
+
+<strong>R$ 25</strong>
+
+<p>
+Mais vantagens e bônus.
+</p>
+
+<button onclick="comprar('VIP Prata')">
+Comprar
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="vip-title">
+
+<img src="File/vip.png">
+
 <h3>VIP Ouro</h3>
+
+</div>
+
 <strong>R$ 35</strong>
-<p>Plano premium da STARS.</p>
+
+<p>
+Plano premium da STARS.
+</p>
+
 <button onclick="comprar('VIP Ouro')">
 Comprar
 </button>
+
 </div>
 
 <div class="card">
+
+<div class="vip-title">
+
+<img src="File/vip.png">
+
+<h3>VIP Diamante</h3>
+
+</div>
+
+<strong>R$ 50</strong>
+
+<p>
+O melhor plano VIP da cidade.
+</p>
+
+<button onclick="comprar('VIP Diamante')">
+Comprar
+</button>
+
+</div>
+
+</div>
+
+<!-- IDS -->
+
+<h2 class="shop-subtitle">
+🪪 IDs
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>ID 12</h3>
+
+<strong>R$ 15</strong>
+
+<p>
+ID exclusivo para sua conta.
+</p>
+
+<button onclick="comprar('ID 12')">
+Comprar
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>ID 15</h3>
+
+<strong>R$ 20</strong>
+
+<p>
+ID exclusivo para sua conta.
+</p>
+
+<button onclick="comprar('ID 15')">
+Comprar
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>ID 20</h3>
+
+<strong>R$ 25</strong>
+
+<p>
+ID exclusivo para sua conta.
+</p>
+
+<button onclick="comprar('ID 20')">
+Comprar
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>ID 25</h3>
+
+<strong>R$ 30</strong>
+
+<p>
+ID exclusivo para sua conta.
+</p>
+
+<button onclick="comprar('ID 25')">
+Comprar
+</button>
+
+</div>
+
+</div>
+
+<!-- ORGS -->
+
+<h2 class="shop-subtitle">
+🏢 Organizações
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
 <h3>Corporação</h3>
+
 <strong>R$ 40</strong>
-<p>1 skin + 1 veículo.</p>
+
+<p>
+1 skin + 1 veículo inclusos.
+</p>
+
 <button onclick="comprar('Corporação')">
 Comprar
 </button>
+
 </div>
 
 <div class="card">
+
 <h3>Facção</h3>
+
 <strong>R$ 40</strong>
-<p>Ativação completa.</p>
+
+<p>
+Ativação completa da facção.
+</p>
+
 <button onclick="comprar('Facção')">
 Comprar
 </button>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- CARRINHO -->
+
+<section id="carrinho" class="pagina cart-page">
+
+<h1>
+🛒 Produtos no carrinho
+</h1>
+
+<div class="cart-layout">
+
+<div class="cart-list" id="cartItems"></div>
+
+<div class="order-summary">
+
+<h2>
+Resumo do Pedido
+</h2>
+
+<label>
+Cupom de desconto
+</label>
+
+<div class="coupon">
+
+<input placeholder="Cupom de desconto">
+
+<button>
+APLICAR
+</button>
+
+</div>
+
+<p>
+Desconto aplicado:
+<span>R$ 0,00</span>
+</p>
+
+<label>
+Método de Pagamento
+</label>
+
+<select>
+<option>Selecionar método</option>
+<option>Pix</option>
+<option>Cartão</option>
+<option>Discord / Suporte</option>
+</select>
+
+<div class="terms">
+
+<input type="checkbox">
+
+<small>
+Li e concordo com os Termos de Uso e Política de Privacidade
+</small>
+
+</div>
+
+<hr>
+
+<div class="subtotal">
+
+<strong>
+Subtotal:
+</strong>
+
+<span id="subtotal">
+R$ 0,00
+</span>
+
+</div>
+
+<button class="finish" onclick="finalizarCompra()">
+FINALIZAR COMPRA
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REGRAS -->
+
 <section id="regras" class="pagina regras-wiki">
 
 <aside>
 
-<h3>Regras</h3>
+<h3>
+Regras
+</h3>
 
 <button>Regras Básicas</button>
 <button>Discord e Fórum</button>
@@ -129,28 +419,35 @@ Regras › Básicas de Roleplay
 Básicas de Roleplay
 </h1>
 
-<h2>Anti RP</h2>
+<h2>
+Anti RP
+</h2>
 
 <p>
-É proibido quebrar a imersão da cidade
-ou agir sem coerência no Roleplay.
+É proibido quebrar a imersão da cidade ou agir sem coerência no Roleplay.
 </p>
 
-<h2>RDM</h2>
+<h2>
+RDM
+</h2>
 
 <p>
-É proibido matar sem motivo.
+É proibido matar sem motivo dentro do RP.
 </p>
 
-<h2>VDM</h2>
+<h2>
+VDM
+</h2>
 
 <p>
-É proibido atropelar sem contexto RP.
+É proibido atropelar outro jogador sem contexto RP.
 </p>
 
 </article>
 
 </section>
+
+<!-- DENUNCIAS -->
 
 <section id="denuncias" class="pagina">
 
@@ -161,14 +458,16 @@ Denúncias
 <div class="form">
 
 <input placeholder="Seu Nick">
+
 <input placeholder="Seu ID">
+
 <input placeholder="Motivo">
 
 <textarea placeholder="Explique o ocorrido"></textarea>
 
 <input type="file">
 
-<button>
+<button onclick="enviarDenuncia()">
 Enviar denúncia
 </button>
 
@@ -176,27 +475,7 @@ Enviar denúncia
 
 </section>
 
-<div class="cart-modal" id="cartModal">
-
-<div class="cart-box">
-
-<div class="cart-header">
-
-<h2>
-Carrinho
-</h2>
-
-<button onclick="fecharCarrinho()">
-✕
-</button>
-
-</div>
-
-<div id="cartItems"></div>
-
-</div>
-
-</div>
+<!-- LOGIN -->
 
 <div class="login-modal" id="loginModal">
 
@@ -208,10 +487,14 @@ Carrinho
 
 <img src="File/logo.png">
 
-<h2>Minha Conta</h2>
+<h2>
+Minha Conta
+</h2>
 
 <input placeholder="Nick in game">
+
 <input placeholder="Senha" type="password">
+
 <input placeholder="ID">
 
 <button>

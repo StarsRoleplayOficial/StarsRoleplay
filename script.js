@@ -1,176 +1,101 @@
 let carrinho = [];
 
 function abrirPagina(id){
-
     document.querySelectorAll(".pagina").forEach(pagina => {
-
         pagina.classList.remove("ativa");
-
     });
 
     document.getElementById(id).classList.add("ativa");
 }
 
 function abrirLogin(){
-
     document.getElementById("loginModal").style.display = "flex";
 }
 
 function fecharLogin(){
-
     document.getElementById("loginModal").style.display = "none";
 }
 
-function abrirCarrinho(){
-
-    document.getElementById("cartModal").style.display = "flex";
-
-    atualizarCarrinho();
-}
-
-function fecharCarrinho(){
-
-    document.getElementById("cartModal").style.display = "none";
-}
-
 function copiarIP(){
-
-    navigator.clipboard.writeText(
-        "mtasa://193.202.85.10:23673"
-    );
-
+    navigator.clipboard.writeText("mtasa://193.202.85.10:23673");
     alert("IP copiado!");
 }
 
 function abrirDiscord(){
-
-    window.open(
-        "https://discord.gg/3eNh3WPef",
-        "_blank"
-    );
+    window.open("https://discord.gg/3eNh3WPef", "_blank");
 }
 
 function comprar(produto){
-
     carrinho.push(produto);
-
     atualizarCarrinho();
-
-    abrirCarrinho();
+    abrirPagina("carrinho");
 }
 
 function atualizarCarrinho(){
-
-    const cartItems =
-    document.getElementById("cartItems");
+    const cartItems = document.getElementById("cartItems");
+    const subtotal = document.getElementById("subtotal");
 
     cartItems.innerHTML = "";
 
     if(carrinho.length <= 0){
-
-        cartItems.innerHTML = `
-        
-        <p style="
-        color:#999;
-        text-align:center;
-        margin-top:20px;
-        ">
-        Seu carrinho está vazio.
-        </p>
-        
-        `;
-
+        cartItems.innerHTML = "<p class='empty'>Seu carrinho está vazio.</p>";
+        subtotal.innerText = "R$ 0,00";
         return;
     }
 
-    carrinho.forEach((produto,index) => {
+    let total = 0;
+
+    carrinho.forEach((produto, index) => {
+        let preco = 40;
+
+        if(produto.includes("Bronze")) preco = 15;
+        if(produto.includes("Prata")) preco = 25;
+        if(produto.includes("Ouro")) preco = 35;
+        if(produto.includes("Diamante")) preco = 50;
+        if(produto.includes("ID 12")) preco = 15;
+        if(produto.includes("ID 15")) preco = 20;
+        if(produto.includes("ID 20")) preco = 25;
+        if(produto.includes("ID 25")) preco = 30;
+
+        total += preco;
 
         cartItems.innerHTML += `
+            <div class="cart-product">
+                <div class="product-thumb">STARS</div>
 
-        <div style="
-        background:#111;
-        padding:18px;
-        border-radius:18px;
-        margin-bottom:15px;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        ">
+                <div>
+                    <h3>${produto}</h3>
+                    <p>Entrega imediata</p>
+                    <strong>R$ ${preco},00</strong>
+                </div>
 
-            <div>
-
-                <h3 style="
-                margin-bottom:6px;
-                ">
-                ${produto}
-                </h3>
-
-                <p style="
-                color:gold;
-                font-weight:700;
-                ">
-                Produto STARS
-                </p>
-
+                <button onclick="removerItem(${index})">🗑</button>
             </div>
-
-            <button onclick="removerItem(${index})"
-            style="
-            width:45px;
-            height:45px;
-            border:none;
-            border-radius:12px;
-            background:#1b1b1b;
-            color:white;
-            cursor:pointer;
-            ">
-            ✕
-            </button>
-
-        </div>
-
         `;
     });
 
-    cartItems.innerHTML += `
-
-    <button onclick="finalizarCompra()"
-    style="
-    width:100%;
-    margin-top:20px;
-    padding:18px;
-    border:none;
-    border-radius:18px;
-    background:linear-gradient(135deg,#ffd700,#b98b00);
-    font-weight:900;
-    cursor:pointer;
-    ">
-    Finalizar Compra
-    </button>
-
-    `;
+    subtotal.innerText = `R$ ${total},00`;
 }
 
 function removerItem(index){
-
-    carrinho.splice(index,1);
-
+    carrinho.splice(index, 1);
     atualizarCarrinho();
 }
 
 function finalizarCompra(){
+    if(carrinho.length <= 0){
+        alert("Seu carrinho está vazio.");
+        return;
+    }
 
-    alert(
-        "Compra iniciada! Finalize pelo Discord da STARS."
-    );
+    window.open("https://discord.gg/3eNh3WPef", "_blank");
+}
 
-    window.open(
-        "https://discord.gg/3eNh3WPef",
-        "_blank"
-    );
+function enviarDenuncia(){
+    alert("Denúncia enviada para análise da staff.");
 }
 
 window.onload = function(){
-
     abrirPagina("home");
-}
+    atualizarCarrinho();
+};

@@ -11,6 +11,8 @@ color:white;
 overflow-x:hidden;
 }
 
+/* HEADER */
+
 header{
 position:fixed;
 top:25px;
@@ -53,6 +55,7 @@ color:#ddd;
 cursor:pointer;
 font-weight:700;
 text-decoration:none;
+transition:.2s;
 }
 
 nav a:hover{
@@ -69,6 +72,8 @@ font-weight:900;
 cursor:pointer;
 }
 
+/* PAGINAS */
+
 .pagina{
 display:none;
 min-height:100vh;
@@ -78,6 +83,8 @@ padding:130px 8% 80px;
 .pagina.ativa{
 display:block;
 }
+
+/* HERO */
 
 .hero{
 display:none;
@@ -89,8 +96,7 @@ text-align:center;
 overflow:hidden;
 padding:0;
 background:
-radial-gradient(circle at center,rgba(255,215,0,.13),transparent 45%),
-linear-gradient(rgba(2,4,10,.80),rgba(2,4,10,.98)),
+linear-gradient(rgba(2,4,10,.80),rgba(2,4,10,.95)),
 url("File/background.png");
 background-size:cover;
 background-position:center;
@@ -100,10 +106,20 @@ background-position:center;
 display:flex;
 }
 
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at center,
+rgba(255,215,0,.10),
+transparent 50%);
+}
+
 .hero-content{
 position:relative;
 z-index:5;
-margin-top:-180px;
+margin-top:-70px;
 }
 
 .small{
@@ -115,22 +131,21 @@ margin-bottom:25px;
 }
 
 .hero h1{
-font-size:76px;
+font-size:86px;
 font-weight:900;
 letter-spacing:-3px;
 }
 
 .hero h1 span{
 color:gold;
-text-shadow:0 0 30px rgba(255,215,0,.55);
+text-shadow:0 0 40px rgba(255,215,0,.45);
 }
 
 .hero h2{
-font-size:20px;
+font-size:22px;
 color:#ccc;
 margin-top:20px;
 margin-bottom:35px;
-letter-spacing:1px;
 }
 
 .hero-buttons{
@@ -140,34 +155,26 @@ gap:15px;
 flex-wrap:wrap;
 }
 
-.hero-buttons button,
-.card button,
-.form button{
-padding:16px 34px;
+.hero-buttons button{
+padding:18px 36px;
 border:none;
 border-radius:18px;
 background:linear-gradient(135deg,#ffd700,#b98b00);
 color:black;
 font-weight:900;
 cursor:pointer;
+font-size:15px;
 transition:.25s;
 }
 
-.secondary{
-background:#111 !important;
-color:white !important;
-border:1px solid #333 !important;
+.hero-buttons button:hover{
+transform:translateY(-3px);
 }
 
-.characters{
-position:absolute;
-bottom:0;
-left:50%;
-transform:translateX(-50%);
-width:850px;
-max-width:95%;
-z-index:2;
-filter:drop-shadow(0 0 40px rgba(0,0,0,.8));
+.secondary{
+background:#101010 !important;
+color:white !important;
+border:1px solid #333 !important;
 }
 
 .bottom-text{
@@ -180,10 +187,46 @@ color:#aaa;
 z-index:5;
 }
 
+/* TITULOS */
+
 .title{
-font-size:46px;
+font-size:52px;
 margin-bottom:35px;
 }
+
+.shop-subtitle{
+font-size:28px;
+margin:50px 0 25px;
+}
+
+/* CATEGORIAS */
+
+.categories{
+display:flex;
+gap:14px;
+margin-bottom:35px;
+flex-wrap:wrap;
+}
+
+.category{
+padding:14px 24px;
+border:none;
+border-radius:14px;
+background:#111722;
+color:white;
+font-weight:800;
+cursor:pointer;
+border:1px solid #222;
+transition:.2s;
+}
+
+.category:hover,
+.category.active{
+background:linear-gradient(135deg,#ffd700,#b98b00);
+color:black;
+}
+
+/* LOJA */
 
 .grid{
 display:grid;
@@ -194,34 +237,191 @@ gap:25px;
 .card{
 background:linear-gradient(180deg,#111722,#080b11);
 border:1px solid rgba(255,255,255,.08);
-border-radius:28px;
+border-radius:24px;
 padding:30px;
-min-height:260px;
 transition:.25s;
 }
 
 .card:hover{
 transform:translateY(-8px);
-border-color:rgba(255,215,0,.5);
+border-color:rgba(255,215,0,.45);
 box-shadow:0 0 35px rgba(255,215,0,.12);
+}
+
+.vip-title{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:20px;
+}
+
+.vip-title img{
+width:58px;
+height:58px;
+object-fit:contain;
+filter:drop-shadow(0 0 14px rgba(255,215,0,.45));
 }
 
 .card h3{
 font-size:26px;
-margin-bottom:15px;
 }
 
 .card strong{
 display:block;
-font-size:36px;
+font-size:42px;
 color:gold;
-margin-bottom:15px;
+margin:15px 0;
 }
 
 .card p{
 color:#aaa;
 margin-bottom:30px;
+line-height:1.6;
 }
+
+.card button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:linear-gradient(135deg,#ffd700,#b98b00);
+font-weight:900;
+cursor:pointer;
+transition:.2s;
+}
+
+.card button:hover{
+transform:translateY(-2px);
+}
+
+/* CARRINHO */
+
+.cart-page h1{
+font-size:28px;
+margin-bottom:45px;
+}
+
+.cart-layout{
+display:grid;
+grid-template-columns:1.4fr .9fr;
+gap:70px;
+align-items:start;
+}
+
+.cart-product{
+display:grid;
+grid-template-columns:130px 1fr 50px;
+gap:22px;
+align-items:center;
+background:#070707;
+border:1px solid #222;
+border-radius:14px;
+padding:16px;
+margin-bottom:18px;
+}
+
+.product-thumb{
+height:100px;
+background:linear-gradient(135deg,#111722,#0b0f16);
+border:1px solid #222;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:gold;
+font-weight:900;
+}
+
+.cart-product h3{
+font-size:18px;
+margin-bottom:8px;
+}
+
+.cart-product p{
+color:#aaa;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.cart-product strong{
+color:#00d9ff;
+font-size:24px;
+}
+
+.cart-product button{
+background:none;
+border:none;
+color:#00d9ff;
+font-size:20px;
+cursor:pointer;
+}
+
+.order-summary{
+background:#050505;
+border:1px solid #222;
+padding:28px;
+border-radius:18px;
+}
+
+.order-summary h2{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.coupon{
+display:flex;
+margin:15px 0;
+}
+
+.coupon input{
+flex:1;
+padding:15px;
+border:1px solid #222;
+background:#090909;
+color:white;
+border-radius:8px 0 0 8px;
+outline:none;
+}
+
+.coupon button{
+padding:0 20px;
+border:none;
+background:#0d6b78;
+color:white;
+font-weight:800;
+border-radius:0 8px 8px 0;
+cursor:pointer;
+}
+
+.order-summary select{
+width:100%;
+padding:15px;
+background:#090909;
+color:white;
+border:1px solid #222;
+border-radius:8px;
+margin-top:15px;
+}
+
+.subtotal{
+display:flex;
+justify-content:space-between;
+font-size:22px;
+margin:30px 0;
+}
+
+.finish{
+width:100%;
+padding:18px;
+border:none;
+border-radius:10px;
+background:#0d6b78;
+color:white;
+font-weight:900;
+cursor:pointer;
+}
+
+/* REGRAS */
 
 .regras-wiki{
 grid-template-columns:260px 1fr;
@@ -241,10 +441,6 @@ padding:25px;
 height:max-content;
 }
 
-.regras-wiki aside h3{
-margin-bottom:20px;
-}
-
 .regras-wiki aside button{
 width:100%;
 padding:14px;
@@ -257,17 +453,8 @@ text-align:left;
 cursor:pointer;
 }
 
-.regras-wiki aside button:hover{
-background:#333;
-}
-
 .regras-wiki article{
 max-width:850px;
-}
-
-.breadcrumb{
-color:#aaa;
-margin-bottom:25px;
 }
 
 .regras-wiki h1{
@@ -283,8 +470,9 @@ margin:35px 0 15px;
 .regras-wiki p{
 color:#ccc;
 line-height:1.8;
-font-size:16px;
 }
+
+/* FORM */
 
 .form{
 max-width:700px;
@@ -312,7 +500,18 @@ height:150px;
 resize:none;
 }
 
-.cart-modal,
+.form button{
+width:100%;
+padding:17px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#ffd700,#b98b00);
+font-weight:900;
+cursor:pointer;
+}
+
+/* LOGIN */
+
 .login-modal{
 display:none;
 position:fixed;
@@ -324,7 +523,6 @@ align-items:center;
 justify-content:center;
 }
 
-.cart-box,
 .login-box{
 width:430px;
 max-width:92%;
@@ -333,28 +531,6 @@ border:1px solid rgba(255,215,0,.35);
 border-radius:30px;
 padding:30px;
 text-align:center;
-}
-
-.cart-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.cart-header button,
-.close{
-width:40px;
-height:40px;
-border:none;
-border-radius:12px;
-background:#111;
-color:white;
-font-size:22px;
-cursor:pointer;
-}
-
-.login-box{
 position:relative;
 }
 
@@ -381,9 +557,20 @@ cursor:pointer;
 position:absolute;
 top:18px;
 right:18px;
+width:40px;
+height:40px;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+font-size:22px;
+cursor:pointer;
 }
 
-@media(max-width:850px){
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
 header{
 width:94%;
 height:auto;
@@ -400,15 +587,20 @@ justify-content:center;
 }
 
 .hero h1{
-font-size:46px;
+font-size:48px;
 }
 
 .hero-content{
-margin-top:-120px;
+margin-top:-30px;
 }
 
 .small{
 letter-spacing:3px;
+}
+
+.cart-layout{
+grid-template-columns:1fr;
+gap:30px;
 }
 
 .regras-wiki.ativa{
@@ -418,9 +610,5 @@ display:block;
 .regras-wiki aside{
 margin-bottom:30px;
 }
-}
 
-background:
-radial-gradient(circle at center,rgba(255,215,0,.13),transparent 45%),
-linear-gradient(rgba(2,4,10,.80),rgba(2,4,10,.98)),
-url("File/background.png");
+}

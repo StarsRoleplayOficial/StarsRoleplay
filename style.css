@@ -1,0 +1,426 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#05070b;
+color:white;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:25px;
+left:50%;
+transform:translateX(-50%);
+width:84%;
+height:80px;
+background:rgba(5,7,12,.85);
+border:1px solid rgba(255,255,255,.08);
+border-radius:40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 30px;
+z-index:1000;
+backdrop-filter:blur(15px);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:22px;
+font-weight:900;
+}
+
+.brand img{
+width:48px;
+height:48px;
+object-fit:contain;
+}
+
+nav{
+display:flex;
+gap:28px;
+}
+
+nav a{
+color:#ddd;
+cursor:pointer;
+font-weight:700;
+text-decoration:none;
+}
+
+nav a:hover{
+color:gold;
+}
+
+.account-btn{
+padding:15px 26px;
+border:none;
+border-radius:25px;
+background:white;
+color:black;
+font-weight:900;
+cursor:pointer;
+}
+
+.pagina{
+display:none;
+min-height:100vh;
+padding:130px 8% 80px;
+}
+
+.pagina.ativa{
+display:block;
+}
+
+.hero{
+display:none;
+height:100vh;
+position:relative;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+padding:0;
+background:
+radial-gradient(circle at center,rgba(255,215,0,.13),transparent 45%),
+linear-gradient(rgba(2,4,10,.80),rgba(2,4,10,.98)),
+url("File/background.png");
+background-size:cover;
+background-position:center;
+}
+
+.hero.ativa{
+display:flex;
+}
+
+.hero-content{
+position:relative;
+z-index:5;
+margin-top:-180px;
+}
+
+.small{
+letter-spacing:8px;
+font-size:13px;
+font-weight:900;
+color:#ddd;
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:76px;
+font-weight:900;
+letter-spacing:-3px;
+}
+
+.hero h1 span{
+color:gold;
+text-shadow:0 0 30px rgba(255,215,0,.55);
+}
+
+.hero h2{
+font-size:20px;
+color:#ccc;
+margin-top:20px;
+margin-bottom:35px;
+letter-spacing:1px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-buttons button,
+.card button,
+.form button{
+padding:16px 34px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#ffd700,#b98b00);
+color:black;
+font-weight:900;
+cursor:pointer;
+transition:.25s;
+}
+
+.secondary{
+background:#111 !important;
+color:white !important;
+border:1px solid #333 !important;
+}
+
+.characters{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:850px;
+max-width:95%;
+z-index:2;
+filter:drop-shadow(0 0 40px rgba(0,0,0,.8));
+}
+
+.bottom-text{
+position:absolute;
+bottom:45px;
+letter-spacing:18px;
+font-size:12px;
+font-weight:800;
+color:#aaa;
+z-index:5;
+}
+
+.title{
+font-size:46px;
+margin-bottom:35px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:linear-gradient(180deg,#111722,#080b11);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:30px;
+min-height:260px;
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:rgba(255,215,0,.5);
+box-shadow:0 0 35px rgba(255,215,0,.12);
+}
+
+.card h3{
+font-size:26px;
+margin-bottom:15px;
+}
+
+.card strong{
+display:block;
+font-size:36px;
+color:gold;
+margin-bottom:15px;
+}
+
+.card p{
+color:#aaa;
+margin-bottom:30px;
+}
+
+.regras-wiki{
+grid-template-columns:260px 1fr;
+gap:45px;
+background:#080808;
+}
+
+.regras-wiki.ativa{
+display:grid;
+}
+
+.regras-wiki aside{
+background:#0f0f0f;
+border:1px solid #222;
+border-radius:22px;
+padding:25px;
+height:max-content;
+}
+
+.regras-wiki aside h3{
+margin-bottom:20px;
+}
+
+.regras-wiki aside button{
+width:100%;
+padding:14px;
+margin-bottom:10px;
+border:none;
+border-radius:10px;
+background:#1a1a1a;
+color:white;
+text-align:left;
+cursor:pointer;
+}
+
+.regras-wiki aside button:hover{
+background:#333;
+}
+
+.regras-wiki article{
+max-width:850px;
+}
+
+.breadcrumb{
+color:#aaa;
+margin-bottom:25px;
+}
+
+.regras-wiki h1{
+font-size:42px;
+margin-bottom:30px;
+}
+
+.regras-wiki h2{
+font-size:26px;
+margin:35px 0 15px;
+}
+
+.regras-wiki p{
+color:#ccc;
+line-height:1.8;
+font-size:16px;
+}
+
+.form{
+max-width:700px;
+background:linear-gradient(180deg,#111722,#080b11);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:30px;
+}
+
+.form input,
+.form textarea,
+.login-box input{
+width:100%;
+padding:17px;
+margin-bottom:15px;
+border-radius:16px;
+border:1px solid #222;
+background:#080b11;
+color:white;
+outline:none;
+}
+
+.form textarea{
+height:150px;
+resize:none;
+}
+
+.cart-modal,
+.login-modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(10px);
+z-index:9999;
+align-items:center;
+justify-content:center;
+}
+
+.cart-box,
+.login-box{
+width:430px;
+max-width:92%;
+background:linear-gradient(180deg,#111722,#080b11);
+border:1px solid rgba(255,215,0,.35);
+border-radius:30px;
+padding:30px;
+text-align:center;
+}
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.cart-header button,
+.close{
+width:40px;
+height:40px;
+border:none;
+border-radius:12px;
+background:#111;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+
+.login-box{
+position:relative;
+}
+
+.login-box img{
+width:85px;
+margin-bottom:18px;
+}
+
+.login-box h2{
+margin-bottom:22px;
+}
+
+.login-box button:not(.close){
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#ffd700,#b98b00);
+font-weight:900;
+cursor:pointer;
+}
+
+.close{
+position:absolute;
+top:18px;
+right:18px;
+}
+
+@media(max-width:850px){
+header{
+width:94%;
+height:auto;
+padding:20px;
+flex-direction:column;
+gap:15px;
+border-radius:25px;
+}
+
+nav{
+gap:14px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero h1{
+font-size:46px;
+}
+
+.hero-content{
+margin-top:-120px;
+}
+
+.small{
+letter-spacing:3px;
+}
+
+.regras-wiki.ativa{
+display:block;
+}
+
+.regras-wiki aside{
+margin-bottom:30px;
+}
+}
+
+background:
+radial-gradient(circle at center,rgba(255,215,0,.13),transparent 45%),
+linear-gradient(rgba(2,4,10,.80),rgba(2,4,10,.98)),
+url("File/background.png");

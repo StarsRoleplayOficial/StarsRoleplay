@@ -1,1 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STARS ROLEPLAY</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header>
+
+<div class="brand">
+<img src="File/logo.png">
+<span>STARS</span>
+</div>
+
+<nav>
+<a onclick="abrirPagina('home')">Início</a>
+<a onclick="abrirPagina('loja')">Loja</a>
+<a onclick="abrirPagina('regras')">Regras</a>
+<a onclick="abrirPagina('denuncias')">Denúncias</a>
+<a onclick="abrirCarrinho()">Carrinho</a>
+</nav>
+
+<button class="account-btn" onclick="abrirLogin()">
+Minha Conta
+</button>
+
+</header>
+
+<section id="home" class="pagina ativa hero">
+
+<div class="hero-content">
+
+<p class="small">
+A CIDADE DA STARS ESTÁ ONLINE
+</p>
+
+<h1>
+STARS <span>ROLEPLAY</span>
+</h1>
+
+<h2>
+JUNTE-SE À CIDADE AGORA MESMO
+</h2>
+
+<div class="hero-buttons">
+
+<button onclick="copiarIP()">
+Conectar ao Servidor
+</button>
+
+<button onclick="abrirDiscord()" class="secondary">
+Discord
+</button>
+
+</div>
+
+</div>
+
+<img class="characters" src="File/personagens.png">
+
+<p class="bottom-text">
+SIGA NOSSAS REDES SOCIAIS
+</p>
+
+</section>
+
+<section id="loja" class="pagina">
+
+<h1 class="title">
+Loja Oficial
+</h1>
+
+<div class="grid">
+
+<div class="card">
+<h3>VIP Ouro</h3>
+<strong>R$ 35</strong>
+<p>Plano premium da STARS.</p>
+<button onclick="comprar('VIP Ouro')">
+Comprar
+</button>
+</div>
+
+<div class="card">
+<h3>Corporação</h3>
+<strong>R$ 40</strong>
+<p>1 skin + 1 veículo.</p>
+<button onclick="comprar('Corporação')">
+Comprar
+</button>
+</div>
+
+<div class="card">
+<h3>Facção</h3>
+<strong>R$ 40</strong>
+<p>Ativação completa.</p>
+<button onclick="comprar('Facção')">
+Comprar
+</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="regras" class="pagina regras-wiki">
+
+<aside>
+
+<h3>Regras</h3>
+
+<button>Regras Básicas</button>
+<button>Discord e Fórum</button>
+<button>Organizações</button>
+<button>Sistema de punições</button>
+
+</aside>
+
+<article>
+
+<p class="breadcrumb">
+Regras › Básicas de Roleplay
+</p>
+
+<h1>
+Básicas de Roleplay
+</h1>
+
+<h2>Anti RP</h2>
+
+<p>
+É proibido quebrar a imersão da cidade
+ou agir sem coerência no Roleplay.
+</p>
+
+<h2>RDM</h2>
+
+<p>
+É proibido matar sem motivo.
+</p>
+
+<h2>VDM</h2>
+
+<p>
+É proibido atropelar sem contexto RP.
+</p>
+
+</article>
+
+</section>
+
+<section id="denuncias" class="pagina">
+
+<h1 class="title">
+Denúncias
+</h1>
+
+<div class="form">
+
+<input placeholder="Seu Nick">
+<input placeholder="Seu ID">
+<input placeholder="Motivo">
+
+<textarea placeholder="Explique o ocorrido"></textarea>
+
+<input type="file">
+
+<button>
+Enviar denúncia
+</button>
+
+</div>
+
+</section>
+
+<div class="cart-modal" id="cartModal">
+
+<div class="cart-box">
+
+<div class="cart-header">
+
+<h2>
+Carrinho
+</h2>
+
+<button onclick="fecharCarrinho()">
+✕
+</button>
+
+</div>
+
+<div id="cartItems"></div>
+
+</div>
+
+</div>
+
+<div class="login-modal" id="loginModal">
+
+<div class="login-box">
+
+<button class="close" onclick="fecharLogin()">
+×
+</button>
+
+<img src="File/logo.png">
+
+<h2>Minha Conta</h2>
+
+<input placeholder="Nick in game">
+<input placeholder="Senha" type="password">
+<input placeholder="ID">
+
+<button>
+Entrar
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
